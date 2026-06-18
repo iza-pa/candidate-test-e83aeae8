@@ -27,6 +27,9 @@ export function Nav() {
             <Link to="/developers" className="text-indigo-200 hover:text-white text-sm">
               Developers
             </Link>
+            <Link to="/approvals" className="text-indigo-200 hover:text-white text-sm">
+              Approvals
+            </Link>
           </>
         )}
       </div>

@@ -9,6 +9,7 @@ import SubmitHours from './pages/SubmitHours'
 import Billing from './pages/Billing'
 import InvoiceDetail from './pages/InvoiceDetail'
 import DeveloperSettings from './pages/DeveloperSettings'
+import Approvals from './pages/Approvals'
 import { ReactNode } from 'react'
 
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -97,6 +98,16 @@ function AppRoutes() {
           <RequireAuth>
             <Layout>
               <DeveloperSettings />
+            </Layout>
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/approvals"
+        element={
+          <RequireAuth>
+            <Layout>
+              <Approvals />
             </Layout>
           </RequireAuth>
         }
