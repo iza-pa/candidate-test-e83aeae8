@@ -1,6 +1,11 @@
 import { ReactNode } from 'react'
 
-export function Table({ headers, children }: { headers: string[]; children: ReactNode }) {
+type TableProps = {
+  headers: string[]
+  children: ReactNode
+}
+
+export function Table({ headers, children }: TableProps) {
   return (
     <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
       <table className="w-full text-sm">
@@ -19,10 +24,39 @@ export function Table({ headers, children }: { headers: string[]; children: Reac
   )
 }
 
-export function TableRow({ children }: { children: ReactNode }) {
+type TableRowProps = {
+  children: ReactNode
+}
+
+export function TableRow({ children }: TableRowProps) {
   return <tr className="hover:bg-slate-50">{children}</tr>
 }
 
-export function TableCell({ children }: { children?: ReactNode }) {
+type TableCellProps = {
+  children?: ReactNode
+}
+
+export function TableCell({ children }: TableCellProps) {
   return <td className="px-4 py-3 text-slate-700">{children}</td>
+}
+
+type TableFooterRowProps = {
+  children: ReactNode
+}
+
+export function TableFooterRow({ children }: TableFooterRowProps) {
+  return <tr className="bg-slate-50 border-t border-slate-200">{children}</tr>
+}
+
+type TableFooterCellProps = {
+  children?: ReactNode
+  colSpan?: number
+}
+
+export function TableFooterCell({ children, colSpan }: TableFooterCellProps) {
+  return (
+    <td className="px-4 py-2 text-slate-500 text-xs" colSpan={colSpan}>
+      {children}
+    </td>
+  )
 }

@@ -1,12 +1,10 @@
-export function Checkbox({
-  checked,
-  onChange,
-  label,
-}: {
+type CheckboxProps = {
   checked: boolean
   onChange: (checked: boolean) => void
   label: string
-}) {
+}
+
+export function Checkbox({ checked, onChange, label }: CheckboxProps) {
   return (
     <input
       type="checkbox"
