@@ -19,6 +19,12 @@ tasks:
     cmds:
       - uv run pytest
 
+  test-frontend:
+    desc: Run the frontend test suite.
+    dir: frontend
+    cmds:
+      - pnpm test
+
   backend:
     desc: Start the backend development server.
     dir: backend
