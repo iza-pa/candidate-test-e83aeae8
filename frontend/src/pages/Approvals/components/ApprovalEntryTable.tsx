@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
 import { Table, TableRow, TableCell, TableFooterRow, TableFooterCell } from '../../../components/Table'
 import { Checkbox } from '../../../components/inputs/Checkbox'
+import { WarningIcon } from '../../../components/WarningIcon'
 import { ApprovalEntry } from '../hooks/useApprovalEntries'
 
 type ApprovalEntryTableProps = {
   entries: ApprovalEntry[]
   selectedIds: Set<number>
   toggleSelected: (id: number) => void
+  failedTimesheetIds: Set<number>
 }
 
 export function ApprovalEntryTable({
   entries,
   selectedIds,
   toggleSelected,
+  failedTimesheetIds,
 }: ApprovalEntryTableProps) {
   const totalCount: number = entries.length
   const totalCost: number = entries.reduce((sum, { cost }) => sum + cost, 0)
@@ -36,6 +39,7 @@ export function ApprovalEntryTable({
               >
                 {contract?.freelancer.name}
               </Link>
+              {failedTimesheetIds.has(timesheet.id) && <WarningIcon />}
             </div>
           </TableCell>
           <TableCell>£{Number(contract?.daily_rate).toFixed(2)}</TableCell>

@@ -15,19 +15,15 @@ const SIZE_STYLES: Record<Size, string> = {
   md: 'px-4 py-2 text-sm',
 }
 
-export function Button({
-  variant,
-  size = 'md',
-  disabled,
-  onClick,
-  children,
-}: {
+type ButtonProps = {
   variant: Variant
   size?: Size
   disabled?: boolean
   onClick: () => void
   children: ReactNode
-}) {
+}
+
+export function Button({ variant, size = 'md', disabled, onClick, children }: ButtonProps) {
   return (
     <button
       onClick={onClick}
